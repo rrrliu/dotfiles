@@ -4,6 +4,7 @@ Plug 'arcticicestudio/nord-vim'
 Plug 'scrooloose/nerdtree'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
 
 "Turn on syntax highlighting
@@ -34,7 +35,6 @@ set statusline+=\ %f
 set statusline+=\ %m
 set statusline+=%=
 "Bottom right
-set statusline+=\ %m
 set statusline+=%p%%
 set statusline+=\ \|
 set statusline+=\ %l:%c
@@ -45,7 +45,7 @@ set tabstop=8 softtabstop=2 expandtab shiftwidth=2 smarttab smartindent
 "Jump and highlight words when searching, rm highlight double escaping
 set incsearch
 set hlsearch
-nnoremap <esc><esc> :silent! nohls<cr>
+nnoremap <silent> <esc><esc> :nohls<cr>
 
 "Underline current line
 set cursorline
@@ -57,6 +57,9 @@ set colorcolumn=80
 "NERDTree configuration
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+
+"Function key shortcuts
+nmap <F2> <Plug>(coc-rename)
 
 "Ultisnips configuration
 let g:UltiSnipsExpandTrigger = '<tab>'
