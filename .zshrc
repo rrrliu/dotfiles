@@ -98,6 +98,8 @@ export LANG=en_US.UTF-8
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+alias config='/usr/bin/git --git-dir=/Users/richardliu/.cfg/ --work-tree=/Users/richardliu'
+
 export GOPATH=$HOME/go
 
 export PATH=$PATH:/usr/local/go/bin
