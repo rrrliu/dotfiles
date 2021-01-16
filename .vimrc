@@ -60,6 +60,10 @@ highlight cursorline ctermbg=none cterm=underline
 "Add line at 80 characters
 set colorcolumn=80
 
+"Check for updates from disk
+set autoread
+
+
 "NERDTree configuration
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
@@ -71,3 +75,6 @@ nmap <F2> <Plug>(coc-rename)
 let g:UltiSnipsExpandTrigger = '<tab>'
 let g:UltiSnipsJumpForwardTrigger = '<tab>'
 let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
+
+"CoC configuration
+let g:coc_global_extensions = ['coc-json', 'coc-git', 'coc-highlight', 'coc-emmet', 'coc-pairs']
