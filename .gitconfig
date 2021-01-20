@@ -1,28 +1,39 @@
 [alias]
         # Edit this file
-        ec = config --global -e
+	ec = config --global -e
 
         # Switch
-        co = checkout
-        cob = checkout -b
+	b = branch
+	co = checkout
+	cob = checkout -b
 
-        # Commit
-        c = commit
-        cm = commit -m
-        acm = commit -am
-        Acm = !git add -A && git commit -m
-        wip = !git add -A && git commit -m 'WIP'
+        # Stage and commit
+	a = add
+	c = commit
+	cm = commit -m
+	cam = commit -am
+	acm = !git add -A && git commit -m
+	wip = !git add -A && git commit -m 'WIP'
+
+	# Summarize
+	dd = diff --check --dirstat --find-copies --find-renames --histogram --color
+	lg = log --graph --all  --decorate --oneline
 
         # Revise
-        undo = reset HEAD~1 --mixed
-        amend = commit -a --amend
+	undo = reset HEAD~1 --mixed
+	amend = commit -a --amend
+	rb = rebase
+	rbi = rebase --interactive @{upstream}
 
-        # Pulling
+        # Upstream
 	up = !git pull --rebase --prune $@ && git submodule update --init --recursive
-        default = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
-        bclean = "!f() { DEFAULT=$(git default); git branch --merged ${1-$DEFAULT} | grep -v " ${1-$DEFAULT}$" | xargs git branch -d; }; f"
-        bdone = "!f() { DEFAULT=$(git default); git checkout ${1-$DEFAULT} && git up && git bclean ${1-$DEFAULT}; }; f"
+	default = !git symbolic-ref refs/remotes/origin/HEAD | sed 's@^refs/remotes/origin/@@'
+	bclean = "!f() { DEFAULT=$(git default); git branch --merged ${1-$DEFAULT} | grep -v " ${1-$DEFAULT}$" | xargs git branch -d; }; f"
+	bdone = "!f() { DEFAULT=$(git default); git checkout ${1-$DEFAULT} && git up && git bclean ${1-$DEFAULT}; }; f"
 
         # Pushing (assumes origin)
-        publish = !git push -u origin $(git symbolic-ref --short HEAD)
+	publish = !git push -u origin $(git symbolic-ref --short HEAD)
 
+[user]
+	email = richard.y.liu@berkeley.edu
+	name = Richard Liu
