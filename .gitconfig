@@ -16,6 +16,8 @@
 	wip = !git add -A && git commit -m 'WIP'
 
 	# Summarize
+	d = diff
+	dc = diff --cached
 	dd = diff --check --dirstat --find-copies --find-renames --histogram --color
 	lg = log --graph --all  --decorate --oneline
 
