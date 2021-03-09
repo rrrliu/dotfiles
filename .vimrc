@@ -11,6 +11,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'lervag/vimtex'
 Plug 'sirver/ultisnips'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 "Turn on syntax highlighting
@@ -67,6 +68,7 @@ set autoread
 "NERDTree configuration
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 0 && !exists('s:std_in') | NERDTree | endif
+let g:NERDTreeIgnore = ['^node_modules$']
 
 "Function key shortcuts
 nmap <F2> <Plug>(coc-rename)
